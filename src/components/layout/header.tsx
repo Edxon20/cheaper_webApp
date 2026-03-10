@@ -6,26 +6,27 @@ import { Input } from "@/components/ui/input";
 
 export function Header() {
     return (
-        <header className="h-16 bg-slate-950 border-b border-slate-800 flex items-center justify-between px-6 sticky top-0 z-10">
+        <header className="h-16 bg-background/80 backdrop-blur-md border-b border-white/5 flex items-center justify-between px-6 sticky top-0 z-10 transition-colors">
             <div className="flex items-center flex-1">
-                <Button variant="ghost" size="icon" className="md:hidden mr-2 text-slate-400">
+                <Button variant="ghost" size="icon" className="md:hidden mr-2 text-slate-400 hover:text-primary">
                     <Menu className="w-5 h-5" />
                 </Button>
-                <div className="relative w-full max-w-md hidden md:block">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <div className="relative w-full max-w-md hidden md:block group">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-primary transition-colors" />
                     <Input
-                        placeholder="Buscar..."
-                        className="w-full bg-slate-900 border-slate-800 pl-10 text-slate-200 focus-visible:ring-indigo-500"
+                        placeholder="Search..."
+                        className="w-full bg-black/20 border-white/5 pl-10 text-slate-200 focus-visible:ring-primary/50 focus-visible:border-primary/50 transition-all rounded-full"
                     />
                 </div>
             </div>
 
             <div className="flex items-center space-x-4">
-                <Button variant="ghost" size="icon" className="text-slate-400 hover:text-indigo-400">
+                <Button variant="ghost" size="icon" className="relative text-slate-400 hover:text-primary transition-colors">
                     <Bell className="w-5 h-5" />
+                    <span className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_var(--color-primary)]"></span>
                 </Button>
-                <div className="h-8 w-8 rounded-full bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center cursor-pointer">
-                    <UserCircle className="w-5 h-5 text-indigo-400" />
+                <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center cursor-pointer hover:border-primary/50 hover:bg-primary/20 transition-all shadow-[0_0_10px_rgba(var(--color-primary),0.1)]">
+                    <UserCircle className="w-5 h-5 text-primary" />
                 </div>
             </div>
         </header>
